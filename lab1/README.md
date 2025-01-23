@@ -1,4 +1,4 @@
-# Converting from Fahrenheit to Celsius
+# Task 1: Converting from Fahrenheit to Celsius
 The first task is to take a string as an input, convert each character into an integer using ASCII and store that in an array. Then convert each of those integers from fahrenheit to celsius using the formula 
 $$celsius = (fahrenheit - 32) / (1.8)$$
 
