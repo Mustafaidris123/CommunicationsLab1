@@ -83,5 +83,67 @@ where n = 1 if the formula is applied during sampling, and n = 100 if the formul
 
 ### Applying after sampling
 
+![diagram](image-3.png)
+
+![data](image-4.png)
 
 ### Applying during sampling
+
+
+![diagram](image-5.png)
+
+
+![data](image-6.png)
+
+# Task 3: AM Modulator
+
+The standard equation for modulating is
+
+$$s(t) = [A_c + A_mcos(2\pi f_mt)]cos(2\pi f_ct)$$
+
+the variables with the subscripts m and c are used to represent information for the modulated signal and the carrier signal, respectively.
+
+### Generating a message and carrier signal
+
+First, we will generate two waveforms using the **wave generator** module in the diagram window
+
+the two waves will be generated using the information in the table below
+
+![table](image-2.png)
+
+We would like to see the power spectrum of the message signal. This can be done by inserting the **FFT Power Spectrum and PSD module** into the diagram.
+
+Then, we must connect the message signal to the "signal" input terminal of the module.
+
+The power spectrum is then obtained by creating graphs in the panel, and then connecting the graph nodes to the output of the FFT Power Spectrum and PSD module to the sine wave terminal.
+
+![diagram](image-7.png)
+
+![data](image-8.png)
+
+Then, using the formula that was stated earlier, the AM waveform can be obtained.
+
+$$s(t) = (A_c + A_mcos(2 \pi f_m t))cos(2 \pi f_c t)$$
+
+$$s(t) = c(t) (1 + m(t)/A_c)$$
+
+Therefore, we obtain the AM waveform by dividing the message signal by the carrier amplitude, adding a 1 and multiplying the output of that sum by the carrier signal.
+
+![AM signal diagram](image-9.png)
+
+![AM signal data](image-10.png)
+
+Then, we can create an indicator to show the AM power spectrum and waveform.
+
+![AM power spectrum](image-11.png)
+
+We can now easily calculate the modulation index using
+
+$$\mu = A_m/A_c$$
+
+
+### Making the module a reusable block
+
+The block diagram that was created can become modular by following a few simple steps
+
+First, the **Edit icon** in the top right corner is pressed, then, the input and output terminals can be configured. They key inputs are frequency and amplitude for both the message and carrier, along with the carrier sampling info. The key outputs are message signal.
